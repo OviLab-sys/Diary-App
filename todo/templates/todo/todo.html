@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang='en'>
+    <head>
+        <title>{{title}}</title>
+        <meta charset ='utf-8'>
+        <meta name='viewport' content="width=device-width, initial-scale=1.0">
+        <meta name='owner' content='Victor Oduor'>
+        <meta name='developer' content='Engineer Victor Oduor'>
+        <link rel='stylesheet' href="{% static "css/todo.css" %}">
+    </head>
+    <body class='general'>
+        {% if messages %}
+            {% for message in messages %}
+                <div class='alert'>
+                    <strong>{{message}}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <center class='row'>
+            <h1><i>__TODO LIST__</i></h1>
+            <hr/>
+        </center>
+        <div class="row">
+            <div class="activity">
+                {% for activity in activity_list %}
+                    <div class="card">
+                        <center><b>{{activity.title}}</b></center>
+                        <hr/>
+                        {{activity.date}}
+                        <hr/>
+                        {{activity.details}}
+                        <br/>
+                        <br/>
+                        <form class="form" action="/delete/{{activity.id}}/" method='post'>
+                            {% csrf_token %}
+                            <button value="remove" type="submit" class='btn'><span class="remove">remove</span></button>
+                        </form>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <div class="submit">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{forms}}
+                        <center>
+                            <input type='submit' class="btn" value="save activity" />
+                        </center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

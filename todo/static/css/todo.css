@@ -1,0 +1,35 @@
+.general {
+background-color: antiquewhite;
+}
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5),
+                0 6px 20px 0 rgba(0,0,0,0.39);
+    background: lightpink;
+    margin-bottom: 5%;
+    border-radius: 25%;
+    padding: 2%;
+    overflow: auto;
+    resize: both;
+    text-overflow: ellipsis;
+}
+.card:hover{
+    background: lightblue;
+}
+.submit{
+    text-align: center;
+    padding: 3%;
+    background: lightgrey;
+    border-radius: 25%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4), 
+                0 6px 20px 0 rgba(0,0,0,0.36);
+}
+.btn{
+    float: right;
+}
+span{
+    background-color: azure;
+    color: rgb(17, 73, 73);
+}
+.row{
+    background-color: lightslategray;
+}
